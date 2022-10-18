@@ -14,7 +14,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/tazjin/kontemplate/util"
+	"github.com/starkers/kontemplate/util"
 )
 
 type ResourceSet struct {
@@ -135,7 +135,7 @@ func (ctx *Context) loadImportedVariables() (map[string]interface{}, error) {
 // Correctly prepares the file paths for resource sets by inferring implicit paths and flattening resource set
 // collections, i.e. resource sets that themselves have an additional 'include' field set.
 // Those will be regarded as a short-hand for including multiple resource sets from a subfolder.
-// See https://github.com/tazjin/kontemplate/issues/9 for more information.
+// See https://github.com/starkers/kontemplate/issues/9 for more information.
 func flattenPrepareResourceSetPaths(baseDir *string, rs *[]ResourceSet) []ResourceSet {
 	flattened := make([]ResourceSet, 0)
 
@@ -186,7 +186,7 @@ func flattenPrepareResourceSetPaths(baseDir *string, rs *[]ResourceSet) []Resour
 // 5. Explicit values set on the CLI (`--var`)
 //
 // For a discussion on the reasoning behind this order, please consult
-// https://github.com/tazjin/kontemplate/issues/142
+// https://github.com/starkers/kontemplate/issues/142
 func (ctx *Context) mergeContextValues() []ResourceSet {
 	updated := make([]ResourceSet, len(ctx.ResourceSets))
 
